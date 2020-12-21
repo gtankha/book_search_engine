@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
+import { ADD_USER } from '../utils/mutations';
 import { createUser } from '../utils/API';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
@@ -11,6 +12,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -20,6 +22,8 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+   
+
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -28,6 +32,16 @@ const SignupForm = () => {
     }
 
     try {
+      const { data } = await addUser({
+        variables: { ...userFormData}
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+   /* try {
       const response = await createUser(userFormData);
 
       if (!response.ok) {
@@ -40,7 +54,7 @@ const SignupForm = () => {
     } catch (err) {
       console.error(err);
       setShowAlert(true);
-    }
+    }*/
 
     setUserFormData({
       username: '',
