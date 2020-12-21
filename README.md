@@ -16,6 +16,11 @@
   ## 1. Description
 
   A functioning Google Books API search engine using  GraphQL API built with Apollo Server. The app was built using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API. App will allow you to search for books, add books to your account, delete books and signup/login.
+
+  Screenshot #1: https://user-images.githubusercontent.com/46304828/102815349-0fcf0600-4381-11eb-95c4-bf55655c9dd4.png
+
+  Screenshot #2: https://user-images.githubusercontent.com/46304828/102815532-54f33800-4381-11eb-8413-c498921db040.png
+  
  
   <a name="installation"></a> 
   ## 2. Installation
