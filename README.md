@@ -58,7 +58,7 @@
 
   GitHub Repo: https://github.com/gtankha/book_search_engine
 
-  Deployed App: 
+  Deployed App: https://book-search-gt.herokuapp.com/ 
 
 
   
